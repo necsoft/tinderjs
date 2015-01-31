@@ -163,7 +163,7 @@ function TinderClient() {
           _this.defaults = body;
           callback(error, res, body);
         } else if (body.error){
-          throw "Failed to authenticate: " + body.error
+          callback(body.error);
         }
       });
   };
@@ -188,7 +188,7 @@ function TinderClient() {
    * Returns client information and globals
    * Globals are used for interacting with tinder api limits
    */
-  this.getDefaults = function() {
+  this.getDefaults = function() {
     return _this.defaults;
   }
 
